@@ -1,0 +1,8 @@
+<ul>
+    <li *ngFor="let u of users">
+        <a [routerLink]="['/users',u.id]"
+        [queryParams]="{allowEdite:u.id ,key1:u.name}">{{u.id+"-"+u.name}}</a>
+    </li>
+</ul>
+
+<router-outlet></router-outlet>
