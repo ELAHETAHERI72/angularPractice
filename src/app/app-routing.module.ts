@@ -8,13 +8,14 @@ import { AccountsComponent } from './accounts/accounts.component';
 import { Notfound404Component } from './notfound404/notfound404.component';
 import { UserComponent } from './users/user/user.component';
 import { EditUserComponent } from './users/edit-user/edit-user.component';
+import { AuthGuard } from './auth-guard.service';
 
 
 const routes: Routes = [
   {path:'',component:HomeComponent},
-  {path:'users',component:UsersComponent,children:[
-    {path:':id',component:UserComponent},
-    {path:'edit',component:EditUserComponent}
+  {path:'users',component:UsersComponent,canActivate:[AuthGuard],children:[
+    {path:':id ',component:UserComponent},
+    {path:':id /edit',component:EditUserComponent}
   ]},
   {path:'accounts',component:AccountsComponent},
   {path:'**',component:Notfound404Component}

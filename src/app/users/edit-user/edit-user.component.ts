@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+  import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { UserserviceService } from '../userservice.service';
 import { IUserinterface } from '../userinterface';
@@ -17,18 +17,18 @@ export class EditUserComponent implements OnInit {
               private usersedrvice:UserserviceService) { }
 
   ngOnInit() {
-    this.activeroute.params.subscribe(
-      (params:Params)=>{
-         this.user= this.usersedrvice.getUser(+params['id']);        
-      }
-    );
-     this.activeroute.queryParams.subscribe(
-       (query:Params)=>{
-          this.allowEdit = query['allowEdit'] === '1' ? true : false;
-       }
-     );
-     this.userid = this.user.id;
-     this.username = this.user.name;
+    // this.activeroute.params.subscribe(
+    //   (params:Params)=>{
+    //      this.user= this.usersedrvice.getUser(+params['id']);        
+    //   }
+    // );
+    //  this.activeroute.queryParams.subscribe(
+    //    (query:Params)=>{
+    //       this.allowEdit = query['allowEdit'] === '1' ? true : false;
+    //    }
+    //  );
+    //  this.userid = this.user.id;
+    //  this.username = this.user.name;
   }
 
 }

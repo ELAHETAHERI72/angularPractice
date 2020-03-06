@@ -9,21 +9,26 @@ import { UserserviceService } from '../userservice.service';
   styleUrls: ['./user.component.scss']
 })
 export class UserComponent implements OnInit {
-  users:IUserinterface[]=[
-    {name:'',id:0}
-  ]
-  user:IUserinterface;
+  // users:IUserinterface;
+  user:IUserinterface={
+    id:0 ,name:''
+  };
   constructor(private activeroute:ActivatedRoute,
               private usersedrvice:UserserviceService,
               private rout:Router
               ) { }
   // @ViewChild('inputTxt',{static:true}) inputTxt :ElementRef;
-  ngOnInit() {
-      this.user = this.usersedrvice.getUser(this.activeroute.params['id']);
-
+  ngOnInit() { 
+     this.activeroute.params.subscribe(
+       (params:Params)=>{
+          console.log(params);
+             this.user = this.usersedrvice.getUser(+params['id']);
+       }
+    )
   }
   EditUser(){
     this.rout.navigate(['edit'],{relativeTo:this.activeroute , queryParamsHandling:"preserve"})
+   
   }
 
 }

@@ -11,6 +11,10 @@ import { Notfound404Component } from './notfound404/notfound404.component';
 import { UserComponent } from './users/user/user.component';
 import { from } from 'rxjs';
 import { EditUserComponent } from './users/edit-user/edit-user.component';
+import { AuthGuard } from './auth-guard.service';
+import { Login } from './login.service';
+import { UserserviceService } from './users/userservice.service';
+
 
 @NgModule({
   declarations: [
@@ -27,7 +31,7 @@ import { EditUserComponent } from './users/edit-user/edit-user.component';
     AppRoutingModule,
     FormsModule
   ],
-  providers: [],
+  providers: [UserserviceService,AuthGuard,Login],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

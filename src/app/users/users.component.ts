@@ -14,7 +14,8 @@ export class UsersComponent implements OnInit {
     {id:3,name:'fatemeh'}
 
   ]
-  constructor(private rout:Router,private active:ActivatedRoute) { }
+  constructor(private rout:Router,
+              private active:ActivatedRoute) { }
 
   ngOnInit() {
      
