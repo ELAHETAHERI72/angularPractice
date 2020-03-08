@@ -1,27 +1,28 @@
 import { Injectable } from '@angular/core';
-import { promise } from 'protractor';
 
 @Injectable({
   providedIn: 'root'
 })
-export class Login{
-  loggedind=false;
-  
-  isAuthenticated(){
-    const promise = new Promise(
+export class LoginService {
+   
+  loggedin=false;
+  authentication(){
+  const promise = new Promise(
       (resolve,reject)=>{
-         setTimeout(
-           ()=>{
-              resolve(this.loggedind)
-           },1000);
-      }
+           setTimeout(
+            ()=>{
+              resolve(this.loggedin)
+            } 
+           ,1000)
+      } 
     )
     return promise;
   }
-  logein(){
-    this.loggedind = true;
+  login(){
+    this.loggedin=true;
   }
-  logeout(){
-    this.loggedind = false;
+ 
+  logout(){
+    this.loggedin=false;
   }
 }

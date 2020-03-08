@@ -1,25 +1,22 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Login } from '../login.service';
+import { LoginService } from '../login.service';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private router:Router,private Login:Login) { }
+  constructor(private router:Router,private loginservice:LoginService) { }
 
   ngOnInit() {
   }
-  // UsersPage(){
-  //     this.router.navigate(['/users']);
-  // }
-  loggedin(){
-    this.Login.logein();
+  logein(){
+     this.loginservice.login();
   }
-  loggedout(){
-    this.Login.logeout();
+  logout(){
+    this.loginservice.logout();
   }
 }

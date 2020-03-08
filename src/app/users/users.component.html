@@ -1,9 +1,6 @@
 <ul>
-    <li *ngFor="let u of users">
-        <a [routerLink]="['/users',u.id]"
-        [queryParams]="{allowEdite:u.id ,key1:u.name}">{{u.id+"-"+u.name}}</a>
-    </li>
+    <li *ngFor="let user of users" style="list-style-type: none;cursor: pointer;" 
+                                   [routerLink]="['/users',user.id]"
+                                   [queryParams]="{useredit:user.id,name:user.name}"><a>{{user.id +'.'+ user.name}}</a></li>
 </ul>
-<!-- <button routerLink="[/accounts]">loggedIn</button> -->
 <router-outlet></router-outlet>
-<!-- [queryParams]="{allowEdite:u.id ,key1:u.name}" -->
