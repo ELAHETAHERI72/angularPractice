@@ -12,6 +12,7 @@ import { EdituserComponent } from './users/edituser/edituser.component';
 import { LoginService } from './login.service';
 import { AuthguardService } from './authguard.service';
 import { from } from 'rxjs';
+import { CandeactiveGuard } from './candeactive-guard.service';
 
 
 @NgModule({
@@ -29,7 +30,7 @@ import { from } from 'rxjs';
     FormsModule
     
   ],
-  providers: [UsersComponent,LoginService,AuthguardService],
+  providers: [UsersComponent,LoginService,AuthguardService,CandeactiveGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

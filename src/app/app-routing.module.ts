@@ -6,13 +6,14 @@ import { UserComponent } from './users/user/user.component';
 import { EdituserComponent } from './users/edituser/edituser.component';
 import { AccountsComponent } from './accounts/accounts.component';
 import { AuthguardService } from './authguard.service';
+import { CandeactiveGuard } from './candeactive-guard.service';
 
 
 const routes: Routes = [
   {path:'',component:HomeComponent},
   {path:'users',component:UsersComponent,canActivate:[AuthguardService],children:[
     {path:':id',component:UserComponent},
-    {path:':id/edit',component:EdituserComponent}
+    {path:':id/edit',canDeactivate:[CandeactiveGuard],component:EdituserComponent}
   ]},
   {path:'accounts',component:AccountsComponent}
 ];
